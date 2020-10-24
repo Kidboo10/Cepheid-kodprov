@@ -1,4 +1,4 @@
-package com.cepheid.cloud.skel.Service;
+package com.cepheid.cloud.skel.service;
 
 import com.cepheid.cloud.skel.model.Description;
 import com.cepheid.cloud.skel.model.Movie;
@@ -6,7 +6,7 @@ import com.cepheid.cloud.skel.repository.DescriptionRepository;
 import com.cepheid.cloud.skel.repository.MovieRepository;
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
@@ -16,7 +16,6 @@ import javax.ws.rs.core.MediaType;
 import java.util.List;
 import java.util.Optional;
 
-@Component
 @Api()
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)

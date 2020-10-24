@@ -60,10 +60,10 @@ public class Description extends AbstractEntity {
     @Override
     public String toString() {
         return "Description{" +
-                "title='" + title + '\'' +
-                ", review='" + review + '\'' +
-                ", date=" + date +
-                ", mId=" + mId +
+                "title='" + getTitle() + '\'' +
+                ", review='" + getReview() + '\'' +
+                ", date=" + getDate() +
+                ", mId=" + getId() +
                 ", movieId=" + getMovie().getId() +
                 '}';
     }

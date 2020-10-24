@@ -1,4 +1,5 @@
 package com.cepheid.cloud.skel.model;
+
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
@@ -81,13 +82,13 @@ public class Movie extends AbstractEntity {
     @Override
     public String toString() {
         return "Movie{" +
-                "title='" + title + '\'' +
-                ", rating='" + rating + '\'' +
-                ", genre='" + genre + '\'' +
-                ", director='" + director + '\'' +
-                ", year='" + year + '\'' +
-                ", descriptions=" + descriptions +
-                ", movieId=" + mId +
+                "title='" + getTitle() + '\'' +
+                ", rating='" + getRating() + '\'' +
+                ", genre='" + getGenre() + '\'' +
+                ", director='" + getDirector() + '\'' +
+                ", year='" + getYear() + '\'' +
+                ", descriptions=" + getDescriptions() +
+                ", movieId=" + getId() +
                 '}';
     }
 }

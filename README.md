@@ -30,6 +30,9 @@
  
 * get all descriptions from a movie id
     * curl -X GET http://localhost:9443/app/api/1.0/movies/get/descriptions/3
+
+* delete one description from a movie, with movie id and description id
+    * curl -X DELETE http:/localhost:9443/app/api/1.0/movies/delete/description/movieId/2/descriptionId/4     
     
 * create a new movie 
     * curl --header "Content-Type: application/json" \
@@ -40,5 +43,5 @@
 * change the title of an existing movie
     * curl --header "Content-Type: application/json" \
                     --request PUT \
-                   --data '{"title":"My new Title"}' \
-                    http://localhost:9443/app/api/1.0/movies/put/1
+                   --data '{"title":"My updated Title"}' \
+                    http://localhost:9443/app/api/1.0/movies/put/2

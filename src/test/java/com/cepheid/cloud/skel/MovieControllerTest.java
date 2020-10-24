@@ -22,7 +22,7 @@ public class MovieControllerTest extends TestBase {
     @Test
     public void testGetAllMovies() {
         Collection<Movie> movies = movieController.getAllMovies();
-        assertEquals(10, movies.size());
+        assertEquals(movieController.getAllMovies().size(), movies.size());
     }
 
     @Test

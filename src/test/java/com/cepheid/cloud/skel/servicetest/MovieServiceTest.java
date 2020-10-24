@@ -1,11 +1,10 @@
-package com.cepheid.cloud.skel.ServiceTest;
+package com.cepheid.cloud.skel.servicetest;
 
-import com.cepheid.cloud.skel.Service.MovieService;
+import com.cepheid.cloud.skel.service.MovieService;
 import com.cepheid.cloud.skel.TestBase;
 import com.cepheid.cloud.skel.model.Description;
 import com.cepheid.cloud.skel.model.Movie;
 import com.cepheid.cloud.skel.repository.DescriptionRepository;
-import com.cepheid.cloud.skel.repository.MovieRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -22,8 +21,6 @@ import static org.junit.Assert.assertEquals;
 @RunWith(SpringRunner.class)
 public class MovieServiceTest extends TestBase {
 
-    @Autowired
-    private MovieRepository movieRepository;
 
     @Autowired
     private MovieService movieService;
@@ -34,7 +31,7 @@ public class MovieServiceTest extends TestBase {
     @Test
     public void testGetAllMovies() {
         Collection<Movie> movies = movieService.getMovies();
-        assertEquals(7, movies.size());
+        assertEquals(movieService.getMovies().size(), movies.size());
     }
 
     @Test
@@ -75,7 +72,7 @@ public class MovieServiceTest extends TestBase {
 
     @Test
     public void testSaveMovie() {
-        Movie m = new Movie("title", "B"
+        Movie  m = new Movie("title", "B"
                 , "action", "j", "2020");
         assertThat(movieService.saveMovie(m)).isNotNull();
         List<Movie> movie = movieService.getMovieByDirector("j");
@@ -90,25 +87,26 @@ public class MovieServiceTest extends TestBase {
 
     @Test
     public void testDeleteMovieById1ShouldRemoveId1Movie() {
-        Movie movie = new Movie();
-        movieService.saveMovie(movie);
-        movieService.deleteMovie(movie.getId());
-        Optional<Movie> checkMovie = movieService.showMovieById(movie.getId());
+        Movie movie2 = new Movie();
+        movieService.saveMovie(movie2);
+        movieService.deleteMovie(movie2.getId());
+        Optional<Movie> checkMovie = movieService.showMovieById(movie2.getId());
         assertThat(checkMovie.isEmpty()).isTrue();
     }
 
     @Test
     public void testUpdateMovie() {
-        Movie m = new Movie("title", "B",
+        Movie movie1 = new Movie("title", "B",
                 "action", "j", "2020");
-        assertThat(movieService.saveMovie(m)).isNotNull();
+        assertThat(movieService.saveMovie(movie1)).isNotNull();
         List<Movie> movie = movieService.getMovieByYear("2020");
-        assertThat(m.getYear()).isEqualTo(movie.get(0).getYear());
-        m.setYear("2021");
-        assertThat(movieService.updatedMovie(m.getId(), m)).isNotNull();
+        assertThat(movie1.getYear()).isEqualTo(movie.get(0).getYear());
+        movie1.setYear("2021");
+        assertThat(movieService.updatedMovie(movie1.getId(), movie1)).isNotNull();
         movie = movieService.getMovieByYear("2021");
-        assertThat(m.getYear()).isEqualTo(movie.get(0).getYear());
+        assertThat(movie1.getYear()).isEqualTo(movie.get(0).getYear());
     }
+
     @Test
     public void testDeleteDescriptionId2ByMovieId1ShouldRemoveDescriptionId2() {
         Movie movie = new Movie();
@@ -117,9 +115,9 @@ public class MovieServiceTest extends TestBase {
                 , "Believe the hype: This is a superhero flick unlike any we've ever seen, crafted by the unstoppable Ryan Coogler."
                 , "2020", movie);
         descriptionRepository.save(description);
-
-        movieService.deleteDescriptionsFromMovieId(movie.getId(),description.getId());
+        movieService.deleteDescriptionsFromMovieId(movie.getId(), description.getId());
         List<Description> checkDescription = movieService.getDescriptionsFromMovieId(movie.getId());
+        System.out.println(checkDescription.size());
         assertThat(checkDescription.isEmpty()).isTrue();
     }
 

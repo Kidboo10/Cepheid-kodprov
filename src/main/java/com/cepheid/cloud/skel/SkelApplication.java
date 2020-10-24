@@ -1,6 +1,6 @@
 package com.cepheid.cloud.skel;
 
-import com.cepheid.cloud.skel.MockDb.MockDB;
+import com.cepheid.cloud.skel.mockdb.MockDB;
 import com.cepheid.cloud.skel.repository.DescriptionRepository;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;

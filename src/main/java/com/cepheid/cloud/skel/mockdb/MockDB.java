@@ -1,4 +1,4 @@
-package com.cepheid.cloud.skel.MockDb;
+package com.cepheid.cloud.skel.mockdb;
 
 import com.cepheid.cloud.skel.model.Description;
 import com.cepheid.cloud.skel.model.Movie;
@@ -6,6 +6,7 @@ import com.cepheid.cloud.skel.repository.DescriptionRepository;
 import com.cepheid.cloud.skel.repository.MovieRepository;
 
 public class MockDB {
+
     public void creatMockData(MovieRepository movieRepository, DescriptionRepository descriptionRepository) {
 
         Movie movie2 = new Movie("BLACK PANTHER", "PG-13",

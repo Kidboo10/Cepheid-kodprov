@@ -6,27 +6,17 @@ import java.util.Optional;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 
-import com.cepheid.cloud.skel.Service.MovieService;
+import com.cepheid.cloud.skel.service.MovieService;
 import com.cepheid.cloud.skel.model.Description;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import com.cepheid.cloud.skel.model.Movie;
 import io.swagger.annotations.Api;
 
-// curl http:/localhost:9443/app/api/1.0/movies
-// curl -X DELETE http://localhost:9443/app/api/1.0/movies/delete/1
-// curl -X GET http://localhost:9443/app/api/1.0/movies/get/2
-// curl -X GET http://localhost:9443/app/api/1.0/movies/get/year?year=2019
-// curl -X GET http://localhost:9443/app/api/1.0/movies/get/director?director=jordan%20peele
-// curl -X GET http://localhost:9443/app/api/1.0/movies/get/rating?rating=r
-// curl -X GET http://localhost:9443/app/api/1.0/movies/get/descriptions/3
-
-@Component
 @Path("/api/1.0/movies")
 @Api()
 @Produces(MediaType.APPLICATION_JSON)
