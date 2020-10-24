@@ -11,7 +11,7 @@
 #### Movie Endpoints ####
 
 * get all movies 
-    * curl http:/localhost:9443/app/api/1.0/movies
+    * curl http://localhost:9443/app/api/1.0/movies
     
 * get movie by id 
     * curl -X GET http://localhost:9443/app/api/1.0/movies/get/2
@@ -32,7 +32,7 @@
     * curl -X GET http://localhost:9443/app/api/1.0/movies/get/descriptions/3
 
 * delete one description from a movie, with movie id and description id
-    * curl -X DELETE http:/localhost:9443/app/api/1.0/movies/delete/description/movieId/2/descriptionId/4     
+    * curl -X DELETE http://localhost:9443/app/api/1.0/movies/delete/description/movieId/2/descriptionId/4     
     
 * create a new movie 
     * curl --header "Content-Type: application/json" \
